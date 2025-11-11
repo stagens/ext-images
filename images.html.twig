@@ -1,0 +1,19 @@
+{% macro Image(url, attrs) %}
+{% set caption = '' %}
+{% set width = 'auto' %}
+{% if typeof attrs.caption !== 'undefined' %}
+{% do caption = attrs.caption %}
+{% endif %}
+{% if typeof attrs.width !== 'undefined' %}
+{% do width = attrs.width %}
+{% endif %}
+<figure>
+<img src="{{ url }}" width="{{ width }}" alt="{{ caption }}" title="{{ caption }}" />
+{% if caption %}
+{{ ImageCaption(caption) }}
+{% endif %}
+</figure>
+{% endmacro %}
+{% macro ImageCaption(caption) %}
+<figcaption>{{ caption }}</figcaption>
+{% endmacro %}

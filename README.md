@@ -1,0 +1,2 @@
+# Images extension for Stagen
+
